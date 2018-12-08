@@ -1,0 +1,38 @@
+/*
+ * 基本型和基本型封装型
+ * 
+ * 基本型和基本型封装型进行 "==" 运算符比较，基本型封装型将会自动拆箱变为基本型后再进行比较
+ * 因此Integer(0)会自动拆箱为int型再进行比较
+ * 
+ * 两个Integer类型进行进行"==" 运算符比较,如果比较两值在 -128-127 范围内且相等则返回 true
+ * 否则一律返回 false 这和 Integer.valueOf() 的缓冲对象有关
+ * 
+ * 两个基本型的封装型进行equals() 比较,首先equals() 会比较类型,如果类型相同,继续比较值,如果值也相同
+ * 返回true
+ * 
+ * 基本型封装类型调用equals() 参数是基本类型,此时先会进行自动装箱,基本类型转换为其封装类型,再进行比较
+ * 
+ */
+
+
+public static void main(String [] args) {
+		int a = 10;
+		//int ad = 10;
+		Integer b = 10;
+		//System.out.println(a.equals(ad)); 基本型不能调用equals()
+		System.out.println(b.equals(a));
+		int c = 299;
+		Integer d = 299;
+		System.out.println(d.equals(c));
+		Integer e = 300;
+		Integer f = 300;
+		System.out.println(e.equals(f));
+		
+		// 如果其值在 -128-127 之间, 正确则返回 true 否则一律返回 false 
+		Integer g = 400;
+		Integer h = 400;
+		System.out.println(g == h);
+		Integer i = 127;
+		Integer j  = 12;
+		System.out.println(i == j);
+	}

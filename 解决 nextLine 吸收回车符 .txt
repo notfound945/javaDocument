@@ -1,0 +1,10 @@
+解决方法
+​	1. 在些之前再加上个 input.nextLine();
+​		如 
+​			input.nextLine();
+​			String string = input.nextLine();
+
+	2. 用一个 while 循环语句 
+		如
+			while((string = input.nextLine()).equals("");
+			System.out.println(string);
